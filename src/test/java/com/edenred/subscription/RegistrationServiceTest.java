@@ -10,12 +10,11 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
-import java.util.Date;
 import java.util.Optional;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 public class RegistrationServiceTest {
 
@@ -28,7 +27,7 @@ public class RegistrationServiceTest {
     private Account account;
     @Before
     public void SetUp(){
-        initMocks(this);
+        openMocks(this);
         account = TestData.createAccount();
     }
 

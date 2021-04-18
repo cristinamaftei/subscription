@@ -16,7 +16,7 @@ import org.mockito.Mock;
 import java.util.Optional;
 
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 public class RegistrationControllerTest {
     @InjectMocks
@@ -31,7 +31,7 @@ public class RegistrationControllerTest {
 
     @Before
     public void setUp(){
-        initMocks(this);
+        openMocks(this);
         account = TestData.createAccount();
     }
 

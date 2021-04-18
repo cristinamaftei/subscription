@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Date;
-
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class AccountRepositoryTest{
@@ -22,12 +20,7 @@ public class AccountRepositoryTest{
     private Account account;
     @Before
     public void setUp(){
-       account = Account.builder()
-               .firstName("First")
-               .lastName("Customer")
-               .email("customer@customer.ro")
-               .created(new Date())
-               .build();
+       account =TestData.createAccount();
        accountRepository.save(account);
     }
 
@@ -40,7 +33,7 @@ public class AccountRepositoryTest{
     public void testGetAccountByEmail(){
         Account actual = accountRepository.getAccountByEmail("customer@customer.ro");
         Assert.assertNotNull(actual);
-        Assert.assertEquals("First", actual.getFirstName());
-        Assert.assertEquals("Customer", actual.getLastName());
+        Assert.assertEquals(account.getFirstName(), actual.getFirstName());
+        Assert.assertEquals(account.getLastName(), actual.getLastName());
     }
 }
