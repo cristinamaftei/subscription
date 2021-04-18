@@ -4,6 +4,19 @@
 3. run java -jar target/subscription-0.0.1-SNAPSHOT.jar
 
 
-#Usage
-From an HTTP client(e.g Postman) run a POST request to the following URL: localhost:8080/registration with the following body:
+# Endpoints
+## Create account
+POST localhost:8080/registration/create
+Header: Content-type: application/json
+Body: 
+```json
+{
+    "firstName": "First",
+    "lastName": "Customer",
+    "email": "first@customer.ro"
+}
+```
+
+## Verify account
+GET localhost:8080/registration?email=first@customer.ro
 
